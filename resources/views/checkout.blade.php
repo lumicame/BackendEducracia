@@ -50,6 +50,7 @@
             ">
             <br>
             <input type="hidden" name="customer-data:email" value="{{$email}}" />
+            <input type="hidden" name="redirect-url" value="http://31.220.52.235/save" />
               <input type="hidden" name="reference" value="{{$reference}}" />
               <!-- OPCIONALES -->
               <button type="submit" style="
