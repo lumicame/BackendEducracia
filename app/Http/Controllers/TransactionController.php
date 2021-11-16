@@ -21,7 +21,7 @@ class TransactionController extends Controller
         Cookie::queue('user_id', $request->user_id, 10);
         $email=$request->email;
         $count=Transaction::count();
-        $reference="EducraciaPrueba_".($count+1);
+        $reference="EducraciaPruebaP_".($count+1);
         return view('checkout',compact('reference','email'));
     }
     public function save(Request $request){
