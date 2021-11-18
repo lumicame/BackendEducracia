@@ -32,7 +32,10 @@ class HistoryController extends Controller
         $follows=Follow::where('follow_id',$request->id)->pluck('user_id');
         $users=User::whereIn('id',$follows)->whereNotIn('history',[0])->orderBy('updated_at','desc')->paginate(10);
          foreach($users as $u){
-            $u->history=History::where('user_id',$u->id)->orderBy('created_at','desc')->first()->image;
+            $history=History::where('user_id',$u->id)->orderBy('created_at','desc')->first();
+            if ($history) {
+               $u->last_history=$history->image;
+            }
         }
         return $users;
     }
