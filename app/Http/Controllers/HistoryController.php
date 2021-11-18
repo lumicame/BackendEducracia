@@ -31,7 +31,7 @@ class HistoryController extends Controller
     public function getHistory(Request $request){
         //$follows=Follow::where('follow_id',$request->id)->pluck('user_id');
         //$users=User::whereIn('id',$follows)->whereNotIn('history',[0])->orderBy('updated_at','desc')->paginate(10);
-        $users=User::whereNotIn('history',[0])->orderBy('updated_at','desc')->paginate(10);
+        $users=User::whereNotIn('id',[$request->id])->whereNotIn('history',[0])->orderBy('updated_at','desc')->paginate(10);
          foreach($users as $u){
             $history=History::where('user_id',$u->id)->orderBy('created_at','desc')->first();
             if ($history) {
