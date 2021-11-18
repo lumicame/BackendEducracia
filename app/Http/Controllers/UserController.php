@@ -44,6 +44,7 @@ class UserController extends Controller
     {
         $user=User::find($request->id);
         $user->active=$request->active;
+        $user->timestamps=false;
         $user->save();
     }
    public function photoProfile(Request $request)
