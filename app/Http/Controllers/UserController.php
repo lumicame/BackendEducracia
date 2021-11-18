@@ -8,6 +8,8 @@ use App\Models\Project;
 use App\Models\Notification;
 use App\Models\Chat;
 use App\Models\Follow; 
+use App\Models\History;
+
 
 
 class UserController extends Controller
@@ -81,6 +83,10 @@ class UserController extends Controller
             $balance=User::find($request->id)->transactions->where('state','APPROVED')->where('payed',0)->sum('ammount');
             $user->balance=$balance;
                 $user->status="OK";
+                $history=History::where('user_id',$user->id)->orderBy('created_at','desc')->first();
+            if ($history) {
+               $user->last_history=$history->image;
+            }
                 return $user;
         }else{
             return '{"status":"Este usuario no existe."}';
