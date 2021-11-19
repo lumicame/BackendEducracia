@@ -81,7 +81,7 @@ class UserController extends Controller
     {
         $user=User::find($request->id);
         if($user){
-            $balance=User::find($request->id)->transactions->where('state','APPROVED')->where('payed',0)->sum('ammount');
+            $balance=User::find($request->id)->transactions->where('for_id',$request->id)->where('state','APPROVED')->where('payed',0)->sum('ammount');
             $user->balance=$balance;
                 $user->status="OK";
                 $history=History::where('user_id',$user->id)->orderBy('created_at','desc')->first();
