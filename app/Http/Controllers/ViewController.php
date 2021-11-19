@@ -18,14 +18,22 @@ class ViewController extends Controller
         }
         else{
             if ($view->vote==$request->vote) {
-                $view->vote="no";
+                $view->vote=null;
+                $view->save();
                 $view->status="OK";
                 return $view;
             }
             else{
-                $view->vote=$request->vote;
+                if ($request->vote) {
+                     $view->vote=$request->vote;
+                $view->save();
                 $view->status="OK";
                 return $view;
+                }else{
+                    $view->status="OK";
+                return $view;
+                }
+               
             }
             
         }
