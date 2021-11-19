@@ -12,7 +12,7 @@ use App\Models\User;
 class ViewController extends Controller
 {
     public function save(Request $request){
-        $view=View::where('histoy_id',$request->history)->where('user_id',$request->user)->first();
+        $view=View::where('history_id',$request->history)->where('user_id',$request->user)->first();
         if (!$view) {
            $view=new View(); 
         }
