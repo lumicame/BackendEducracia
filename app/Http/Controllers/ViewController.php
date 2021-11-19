@@ -72,4 +72,9 @@ class ViewController extends Controller
             return $view;
         }  
     }
+     public function get(Request $request)
+    {
+        $views=View::where('history_id',$request->id)->orderBy('created_at', 'desc')->paginate(100);
+        return $views;
+    }
 }

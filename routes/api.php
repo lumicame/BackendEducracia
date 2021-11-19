@@ -52,6 +52,7 @@ Route::post('vote/get', [VoteController::class,'get']);
 
 Route::post('view/save', [ViewController::class,'save']);
 Route::post('view/count', [ViewController::class,'count']);
+Route::post('view/get', [ViewController::class,'get']);
 
 Route::post('comment/save', [CommentController::class,'save']);
 Route::get('comment/get', [CommentController::class,'get']);
