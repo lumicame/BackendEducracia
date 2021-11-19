@@ -61,7 +61,7 @@ class ViewController extends Controller
            if ($type) {
                $view->type=$type->vote;
            }else{
-            $view->type="no";
+            $view->type=null;
            }
            
            $view->status="OK";
