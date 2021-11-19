@@ -54,6 +54,10 @@ protected $appends = ['department_name'];
     {
         return $this->hasMany(Votes::class);
     } 
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
      public function comments()
     {
         return $this->hasMany(Comment::class);

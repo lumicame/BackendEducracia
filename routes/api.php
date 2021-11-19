@@ -15,6 +15,7 @@ use App\Http\Controllers\ChatController;
 use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RatingController;
+use App\Http\Controllers\ViewController;
 
 
 
@@ -48,6 +49,9 @@ Route::post('users/active', [UserController::class,'Active']);
 Route::post('vote/save', [VoteController::class,'save']);
 Route::post('vote/count', [VoteController::class,'count']);
 Route::post('vote/get', [VoteController::class,'get']);
+
+Route::post('view/save', [ViewController::class,'save']);
+Route::post('view/count', [ViewController::class,'count']);
 
 Route::post('comment/save', [CommentController::class,'save']);
 Route::get('comment/get', [CommentController::class,'get']);

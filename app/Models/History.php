@@ -22,6 +22,25 @@ class History extends Model
 public function user(){
         return $this->belongsTo(User::class);
     }
-
+    public function views()
+    {
+        return $this->hasMany(View::class);
+    }
+     public function count_likes()
+    {
+        return $this->views->where('vote','like')->count();
+    }
+    public function count_unlikes()
+    {
+        return $this->views->where('vote','unlike')->count();
+    }
+    public function count_blanks()
+    {
+        return $this->views->where('vote','blank')->count();
+    }
+    public function count_total()
+    {
+        return $this->views->count();
+    }
 
 }

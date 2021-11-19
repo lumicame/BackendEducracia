@@ -95,7 +95,7 @@ class VoteController extends Controller
         $votes=Vote::where('user_id',$request->user)->orderBy('created_at', 'desc')->paginate(10);
         return $votes;
     }
-      public function enviarNotificacion($data,$tokens) {
+    public function enviarNotificacion($data,$tokens) {
     // Cargamos los datos de la notificacion en un Array
     $optionBuilder = new OptionsBuilder();
     $optionBuilder->setTimeToLive(60*20);
