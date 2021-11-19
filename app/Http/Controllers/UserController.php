@@ -166,7 +166,7 @@ public function login(Request $request){
 }
 public function services(Request $request){
     $user=User::find($request->id);
-    $user->servicio=$request->servicio;
+    $user->service=$request->servicio;
     $user->timestamps = false;
     $user->save();
     $user->status="OK";
