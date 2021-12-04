@@ -16,6 +16,7 @@ class Notification extends Model
     $this->comment;
     $this->transaction;
     $this->rating;
+    $this->view1;
     if ($this->created_at) {
         return $this->created_at->diffForHumans();
     } else {
@@ -45,5 +46,8 @@ public function getUpdatedAtFormattedAttribute()
     }
     public function rating(){
         return $this->belongsTo(Rating::class);
+    }
+    public function view1(){
+        return $this->belongsTo(View::class);
     }
 }

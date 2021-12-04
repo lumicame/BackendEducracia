@@ -20,6 +20,10 @@ class ViewController extends Controller
             if ($view->vote==$request->vote) {
                 $view->vote=null;
                 $view->save();
+                $notification=Notification::where('view_id',$view->id)->first();
+                if ($notification) {
+                    $notification->delete();
+                }
                 $view->status="OK";
                 return $view;
             }
@@ -27,15 +31,22 @@ class ViewController extends Controller
                 if ($request->vote) {
                      $view->vote=$request->vote;
                 $view->save();
+                $notification=Notification::where('view_id',$view->id)->first();
+                if ($notification) {
+                    //$notification->delete();
+                }else{
+                 $notification=new Notification();
+                        $notification->view_id=$view->id;
+                        $notification->user_id=$view->user_id;
+                        $notification->save();
+                }
                 $view->status="OK";
                 return $view;
                 }else{
                     $view->status="OK";
                 return $view;
                 }
-               
             }
-            
         }
         if ($request->vote) {
             $view->vote=$request->vote;
@@ -43,6 +54,10 @@ class ViewController extends Controller
         $view->history_id=$request->history;
         $view->user_id=$request->user;
         $view->save();
+        $notification=new Notification();
+        $notification->view_id=$view->id;
+        $notification->user_id=$view->user_id;
+        $notification->save();
         $view->status="OK";
         return $view;
     }

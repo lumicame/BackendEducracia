@@ -95,7 +95,7 @@ class UserController extends Controller
     }
 public function search(Request $request){
     $string=$request->string;
-    $users=User::where('name','LIKE','%'.$string.'%')->paginate(10);
+    $users=User::where('type','user')->where('name','LIKE','%'.$string.'%')->paginate(10);
     return $users;
 }
 public function projects(Request $request){

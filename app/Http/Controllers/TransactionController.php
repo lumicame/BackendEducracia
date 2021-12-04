@@ -21,13 +21,13 @@ class TransactionController extends Controller
         Cookie::queue('user_id', $request->user_id, 10);
         $email=$request->email;
         $count=Transaction::count();
-        $reference="EducraciaPruebaP_".($count+1);
+        $reference="Educracia_EDU_".($count+1);
         return view('checkout',compact('reference','email'));
     }
     public function save(Request $request){
         
         //$response =Http::get('https://production.wompi.co/v1/transactions/'.$request->id);
-        $response =Http::get('https://sandbox.wompi.co/v1/transactions/'.$request->id);
+        $response =Http::get('https://production.wompi.co/v1/transactions/'.$request->id);
         $data = json_decode($response);
         if (isset($data->error)) {
             return "Este ID de aporte no existe";

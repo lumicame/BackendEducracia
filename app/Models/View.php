@@ -34,4 +34,8 @@ public function getUpdatedAtFormattedAttribute()
     public function history(){
         return $this->belongsTo(History::class);
     }
+    public function notifications()
+    {
+        return $this->hasMany(Notification::class);
+    }
 }

@@ -37,7 +37,7 @@
     </form> -->
             <form action="https://checkout.wompi.co/p/" method="GET">
               <!-- OBLIGATORIOS -->
-              <input type="hidden" name="public-key" value="pub_test_tcUoNwMeZKAvaur0E0AHYhZ5mOxcrbP7" />
+              <input type="hidden" name="public-key" value="pub_prod_yfYVDfrQeplct1LSW5aYer5h9Caecigi" />
               <input type="hidden" name="currency" value="COP" />
               <h3><label>¿Cuanto desea aportar?</label></h3>
               <br>
