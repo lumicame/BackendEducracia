@@ -113,7 +113,7 @@ public function count(Request $request){
     
 }
 public function notificationView(Request $request){
-    $notifications=Notification::where('user_id',$request->user_id)->whereIn('view',[0])->update(array('view' => 1));
+    $notifications=Notification::where('user_id',$request->user_id)->whereIn('view1',[0])->update(array('view1' => 1));
     $objects=array();
     $objects['countNotification']=0;
     return $objects;
