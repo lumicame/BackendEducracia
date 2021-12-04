@@ -47,7 +47,7 @@ public function getUpdatedAtFormattedAttribute()
     public function rating(){
         return $this->belongsTo(Rating::class);
     }
-    public function view1(){
+    public function view(){
         return $this->belongsTo(View::class);
     }
 }
