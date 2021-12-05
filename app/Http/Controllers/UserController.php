@@ -105,7 +105,7 @@ public function projects(Request $request){
 }
 public function count(Request $request){
     $chats=Chat::where('user_id1',$request->user_id)->whereNotIn('view',[0])->count();
-    $notifications=Notification::where('user_id',$request->user_id)->whereIn('view',[0])->count();
+    $notifications=Notification::where('user_id',$request->user_id)->whereIn('view1',[0])->count();
     $objects=array();
     $objects['countNotification']=$notifications;
     $objects['countMessage']=$chats;
