@@ -11,6 +11,7 @@ class Project extends Model
     protected $appends = ['created_at_formatted', 'updated_at_formatted'];
     public function getCreatedAtFormattedAttribute()
 {
+    $this->type;
     if ($this->created_at) {
         return $this->created_at->diffForHumans();
     } else {
@@ -29,6 +30,12 @@ public function getUpdatedAtFormattedAttribute()
 
     public function user(){
         return $this->belongsTo(User::class);
+    }
+    public function department(){
+        return $this->belongsTo(Department::class);
+    }
+    public function type(){
+        return $this->belongsTo(Type::class);
     }
     public function votes()
     {
