@@ -24,6 +24,7 @@ class MessageController extends Controller
         $message1->messages=$request->message;
         $message1->user_id=$request->user_id;
         $message1->chat_id=$chat1->id;
+        $message1->history_id=$request->history;
         $message1->save();
         $message1->status="OK";
         $message1->fromMe=true;
@@ -40,6 +41,7 @@ class MessageController extends Controller
         $message1->messages=$request->message;
         $message1->user_id=$request->user_id;
         $message1->chat_id=$chat1->id;
+        $message1->history_id=$request->history;
         $message1->save();
         $message1->status="OK";
         $message1->fromMe=true;
@@ -53,6 +55,7 @@ class MessageController extends Controller
         $message2->messages=$request->message;
         $message2->user_id=$request->user_id;
         $message2->chat_id=$chat2->id;
+        $message2->history_id=$request->history;
         $message2->save();
         $chat2->last_message=$message2->id;
         $count=$chat2->view;
@@ -68,6 +71,7 @@ class MessageController extends Controller
         $message2->messages=$request->message;
         $message2->user_id=$request->user_id;
         $message2->chat_id=$chat2->id;
+        $message2->history_id=$request->history;
         $message2->save();
         $chat2->last_message=$message2->id;
         $count=$chat2->view;

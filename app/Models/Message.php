@@ -12,6 +12,7 @@ class Message extends Model
      
     public function getCreatedAtFormattedAttribute()
 {
+    $this->history;
     if ($this->created_at) {
      // $day=\Carbon\Carbon::now()->diffInDays($this->created_at);
       if ($this->created_at->isToday()) {
@@ -35,5 +36,8 @@ public function getUpdatedAtFormattedAttribute()
 }
      public function chat(){
         return $this->belongsTo(Chat::class);
+    }
+    public function history(){
+        return $this->belongsTo(History::class);
     }
 }

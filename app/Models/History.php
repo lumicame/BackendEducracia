@@ -19,12 +19,16 @@ class History extends Model
         return "";
     }
 }
-public function user(){
+    public function user(){
         return $this->belongsTo(User::class);
     }
     public function views()
     {
         return $this->hasMany(View::class);
+    }
+    public function messages()
+    {
+        return $this->hasMany(Message::class);
     }
      public function count_likes()
     {
