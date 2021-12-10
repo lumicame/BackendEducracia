@@ -96,6 +96,7 @@ class MessageController extends Controller
             $chat->view=0;
             $chat->timestamps = false;
             $chat->save();
+            $chat->timestamps;
             if ($request->update=="si") {
                return $chat;
             }
