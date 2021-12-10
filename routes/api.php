@@ -84,6 +84,7 @@ Route::post('project/delete', [ProjectController::class,'delete']);
 Route::post('saveHistory', [HistoryController::class,'saveHistory']);
 Route::post('getHistory', [HistoryController::class,'getHistory']);
 Route::post('showHistory', [HistoryController::class,'showHistory']);
+Route::post('getOneHistory', [HistoryController::class,'getOneHistory']);
 
 Route::post('/transaction/get', [TransactionController::class,'get']);
 Route::post('/transaction/ammount', [TransactionController::class,'ammount_total']);

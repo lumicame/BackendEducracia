@@ -56,4 +56,14 @@ class HistoryController extends Controller
         }
         return $histories;
     }
+    public function getOneHistory(Request $request){
+        $history=History::find($request->id);
+        if ($history) {
+            $history->status="OK";
+            return $history;
+        }else{
+            $history->status="ERROR";
+            return $history;
+        }
+    }
 }
