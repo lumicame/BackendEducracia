@@ -16,7 +16,8 @@ class Chat extends Model
     public function getCreatedAtFormattedAttribute()
 {
     if ($this->created_at) {
-        return $this->created_at->diffForHumans();
+        $created=\Carbon\Carbon::parse($this->created_at);
+        return $created->diffForHumans();
     } else {
         return "";
     }
