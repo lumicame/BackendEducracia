@@ -26,12 +26,12 @@ class Chat extends Model
 public function getUpdatedAtFormattedAttribute()
 {
     if ($this->updated_at) {
-
+$updated=\Carbon\Carbon::parse($this->updated_at);
        //$day=\Carbon\Carbon::now()->diffInDays($this->updated_at);
-      if ($this->updated_at->isToday()) {
-         return $this->updated_at->format('h:i A');
+      if ($updated->isToday()) {
+         return $updated->format('h:i A');
       }else{
-         return $this->updated_at->format('M d, h:i A');
+         return $updated->format('M d, h:i A');
       }
     } else {
         return "";
