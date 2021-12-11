@@ -23,6 +23,7 @@ class ReportController extends Controller
     $notification=new Notification();
     $notification->report_id=$report->id;
     $notification->user_id=$request->for_id;
+    $notification->view1=0;
     $notification->save();
     return $report;
     }

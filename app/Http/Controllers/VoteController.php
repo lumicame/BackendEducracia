@@ -41,6 +41,7 @@ class VoteController extends Controller
            $notification=new Notification();
         $notification->vote_id=$vote->id;
         $notification->user_id=$vote->project->user_id;
+        $notification->view1=0;
         $notification->save();
         }
         $vote->active=User::find($vote->project->user_id)->active;

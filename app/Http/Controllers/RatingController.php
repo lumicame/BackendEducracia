@@ -39,6 +39,7 @@ class RatingController extends Controller
     $notification=new Notification();
     $notification->rating_id=$rating->id;
     $notification->user_id=$rating->for_id;
+    $notification->view1=0;
     $notification->save();
     
     

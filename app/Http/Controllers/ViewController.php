@@ -38,6 +38,7 @@ class ViewController extends Controller
                  $notification=new Notification();
                         $notification->view_id=$view->id;
                         $notification->user_id=$view->history->user_id;
+                        $notification->view1=0;
                         $notification->save();
                 }
                 $view->status="OK";
@@ -57,6 +58,7 @@ class ViewController extends Controller
         $notification=new Notification();
         $notification->view_id=$view->id;
         $notification->user_id=$view->history->user_id;
+        $notification->view1=0;
         $notification->save();
         $view->status="OK";
         return $view;

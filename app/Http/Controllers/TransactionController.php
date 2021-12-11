@@ -56,6 +56,7 @@ class TransactionController extends Controller
             $notification=new Notification();
             $notification->transaction_id=$transaction->id;
             $notification->user_id=$transaction->for_id;
+            $notification->view1=0;
             $notification->save();
         }
         

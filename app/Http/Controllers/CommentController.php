@@ -27,6 +27,7 @@ class CommentController extends Controller
             $notification=new Notification();
             $notification->comment_id=$comment->id;
             $notification->user_id=$c->user_id;
+            $notification->view1=0;
             $notification->save();
         }
     }
@@ -35,6 +36,7 @@ class CommentController extends Controller
     $notification=new Notification();
     $notification->comment_id=$comment->id;
     $notification->user_id=$comment->project->user_id;
+    $notification->view1=0;
     $notification->save();
     }
         }

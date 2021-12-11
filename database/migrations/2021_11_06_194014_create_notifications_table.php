@@ -25,7 +25,7 @@ class CreateNotificationsTable extends Migration
             $table->foreign('transaction_id')->references('id')->on('transactions')->onDelete('cascade');
             $table->foreign('rating_id')->references('id')->on('ratings')->onDelete('cascade');
             $table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');
-            $table->boolean('view')->default(0);
+            $table->boolean('view1')->default(0);
             $table->timestamps();
         });
     }
