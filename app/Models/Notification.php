@@ -17,6 +17,7 @@ class Notification extends Model
     $this->transaction;
     $this->rating;
     $this->view;
+    $this->reports;
     if ($this->created_at) {
         return $this->created_at->diffForHumans();
     } else {
