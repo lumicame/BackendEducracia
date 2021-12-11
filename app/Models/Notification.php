@@ -17,7 +17,7 @@ class Notification extends Model
     $this->transaction;
     $this->rating;
     $this->view;
-    $this->reports;
+    $this->report;
     if ($this->created_at) {
         return $this->created_at->diffForHumans();
     } else {
@@ -51,8 +51,8 @@ public function getUpdatedAtFormattedAttribute()
     public function view(){
         return $this->belongsTo(View::class);
     }
-    public function reports()
+    public function report()
     {
-        return $this->hasMany(Report::class);
+        return $this->belongsTo(Report::class);
     }
 }
