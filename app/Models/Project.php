@@ -69,6 +69,10 @@ public function getUpdatedAtFormattedAttribute()
     {
         return $this->comments->where('comment_id',null)->count();
     }
+    public function count_reports()
+    {
+        return $this->reports->count();
+    }
     public function count_users()
     {
         return $this->transactions->count();

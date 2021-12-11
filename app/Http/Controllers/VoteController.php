@@ -73,6 +73,7 @@ class VoteController extends Controller
            $vote->unlikes=$project->count_unlikes();
            $vote->blank=$project->count_blanks();
            $vote->comments=$project->count_comments();
+           $vote->reports=$project->count_reports();
            $vote->num=$project->count_users();
            $vote->total=$project->count_total();
            $type=Vote::where('project_id',$request->project)->where('user_id',$request->user)->get()->first();

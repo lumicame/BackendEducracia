@@ -84,6 +84,10 @@ protected $appends = ['department_name'];
     {
         return $this->hasMany(Rating::class);
     } 
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    } 
      public function getDepartmentNameAttribute()
     {
     return $this->department->name;
