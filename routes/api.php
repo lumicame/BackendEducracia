@@ -16,6 +16,7 @@ use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\TransactionController;
 use App\Http\Controllers\RatingController;
 use App\Http\Controllers\ViewController;
+use App\Http\Controllers\ReportController;
 
 
 
@@ -95,7 +96,9 @@ Route::post('/rating/get', [RatingController::class,'get']);
 Route::post('/rating/save', [RatingController::class,'save']);
 Route::post('/rating/count', [RatingController::class,'count']);
 
-
+////REPORTS//
+Route::post('/report/get', [ReportController::class,'get']);
+Route::post('/report/save', [ReportController::class,'save']);
 
 Route::get('departments', function() {return Department::all();});
 Route::get('types', function() {return Type::all();});
