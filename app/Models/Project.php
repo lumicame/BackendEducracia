@@ -45,6 +45,10 @@ public function getUpdatedAtFormattedAttribute()
     {
         return $this->hasMany(Comment::class);
     } 
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    } 
     public function transactions()
     {
         return $this->hasMany(Transaction::class);

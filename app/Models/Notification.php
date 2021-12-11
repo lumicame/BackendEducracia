@@ -50,4 +50,8 @@ public function getUpdatedAtFormattedAttribute()
     public function view(){
         return $this->belongsTo(View::class);
     }
+    public function reports()
+    {
+        return $this->hasMany(Report::class);
+    }
 }
