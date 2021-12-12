@@ -62,6 +62,7 @@ class HistoryController extends Controller
             $history->status="OK";
             return $history;
         }else{
+            $history=(object)[];
             $history->status="ERROR";
             return $history;
         }
