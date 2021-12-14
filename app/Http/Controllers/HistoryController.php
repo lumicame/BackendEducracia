@@ -15,11 +15,9 @@ class HistoryController extends Controller
         $history=new History();
         $history->description=$request->description;
         $history->user_id=$request->user_id;
-        $history->save();
-        $image = $request->file('image');
-        $namea='history_'.$history->id.'.'.$image->getClientOriginalExtension();
-        \Storage::disk('local')->put('history/'.$namea,  \File::get($image));
-        $history->image=$namea;
+        if($request->image!=""){
+        $history->image=$request->image;
+        }
         $history->save();
         $history->status="OK";
         $user=User::find($request->user_id);

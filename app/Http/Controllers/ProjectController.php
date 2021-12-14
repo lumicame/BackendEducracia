@@ -18,19 +18,12 @@ class ProjectController extends Controller
         $project->department_id=$request->department_id;
         $project->type_id=$request->type_id;
         $project->user_id=$request->user_id;
-        $project->save();
-        $image = $request->file('image');
-        $namea='project_'.$project->id.'.'.$image->getClientOriginalExtension();
-        \Storage::disk('local')->put('project/'.$namea,  \File::get($image));
-
-        $pdf = $request->file('pdf');
-        if ($pdf) {
-            $namep='pdf_'.$project->id.'.'.$pdf->getClientOriginalExtension();
-        \Storage::disk('local')->put('project/'.$namep,  \File::get($pdf));
-           $project->pdf=$namep;
+        if($request->image!=""){
+        $project->image=$request->image;
         }
-        
-        $project->image=$namea;
+        if($request->pdf!=""){
+            $project->pdf=$request->pdf;
+        }
         $project->save();
         $project->status="OK";
         return $project;

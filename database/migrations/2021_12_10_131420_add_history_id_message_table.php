@@ -15,7 +15,6 @@ class AddHistoryIdMessageTable extends Migration
     {
          Schema::table('messages', function (Blueprint $table) {
             $table->unsignedBigInteger('history_id')->nullable();
-            $table->foreign('history_id')->references('id')->on('histories');
         });
     }
 
