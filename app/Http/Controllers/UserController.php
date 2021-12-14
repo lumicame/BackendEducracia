@@ -133,7 +133,7 @@ public function getFollow(Request $request){
     
 }
 public function showFollows(Request $request){
-    $follows=Follow::where('user_id',$request->id)->paginate(50);
+    $follows=Follow::where('follow_id',$request->id)->paginate(50);
     return $follows;
 }
 public function saveFollow(Request $request){
