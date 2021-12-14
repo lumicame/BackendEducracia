@@ -46,6 +46,7 @@ Route::post('users/notification/view', [UserController::class,'notificationView'
 Route::post('users/follow', [UserController::class,'getFollow']);
 Route::post('users/follow/save', [UserController::class,'saveFollow']);
 Route::post('users/active', [UserController::class,'Active']);
+Route::post('followers/get', [UserController::class,'showFollows']);
 
 Route::post('vote/save', [VoteController::class,'save']);
 Route::post('vote/count', [VoteController::class,'count']);

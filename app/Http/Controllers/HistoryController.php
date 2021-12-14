@@ -45,6 +45,7 @@ class HistoryController extends Controller
       if ($day>0) {
         \Storage::disk('local')->delete('history/'.$h->image);
          $h->delete();
+         $h->dele="OK";
          $user=User::find($request->id);
          $count=$user->history;
          $user->history=$count-1;

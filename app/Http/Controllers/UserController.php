@@ -132,6 +132,10 @@ public function getFollow(Request $request){
     return $objects;
     
 }
+public function showFollows(Request $request){
+    $follows=Follow::where('user_id',$request->id)->paginate(50);
+    return $follows;
+}
 public function saveFollow(Request $request){
     $follow=Follow::where('user_id',$request->id)->where('follow_id',$request->follow)->first();
     $objects=array();
