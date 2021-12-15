@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Project;
 use App\Models\History;
+use App\Models\Follow;
 
 
 class ProjectController extends Controller
@@ -29,8 +30,14 @@ class ProjectController extends Controller
         return $project;
     }
     public function Projects(Request $request){
+        if ($request->state=="default") {
+            //$follows=Follow::where("user_id",$request->user)->orWhere("follow_id",$request->user)->get();
+            $projects=Project::orderBy('created_at','desc')->paginate(10);
+        return $projects;
+        }else{
         $projects=Project::where("department_id",$request->department)->where("type_id",$request->type)->orderBy('created_at','desc')->paginate(10);
         return $projects;
+    }
     }
      public function show(Request $request){
         $project=Project::find($request->id);
